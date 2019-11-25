@@ -18,12 +18,12 @@ Output will be
 
 	(4, [(1, -8), (2, -11)])
 	
-which means longest length of 2-common sublist = 4 and it appears in lis1 at index -8 (which is len(lis1) - 8 = 1) and lis2 at index -11 (which is len(lis2) - 11 = 0).
+which means
+- longest length of 2-common sublist is 4;
+- it appears in lis1 at index -8 (which is index 1 = len(lis1) - 8)
+- it appears in lis2 at index -11 (which is index 0 = len(lis2) - 11).
 
-Usage note
+longest strand of bytes
 ----------
 
-This library is mostly an academic exercise. 
-If you need an efficient library
-I would recommend a python-wrapped c implementation, 
-such as [this one](http://www.daimi.au.dk/~mailund/suffix_tree.html).
+Please open test.py, which has input and output togethor with explanations
