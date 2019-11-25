@@ -26,4 +26,5 @@ which means
 longest strand of bytes
 ----------
 
-Please open test.py, which has input and output togethor with explanations
+Please refer to test.py.
+It takes care of input and output for binary files 'sample.1' to 'sample.10'.
