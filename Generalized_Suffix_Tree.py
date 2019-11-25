@@ -185,8 +185,7 @@ class GeneralizedSuffixTree(object):
         Checks each edge to see if it ends at a string type element, if so, the source node of this edge is the end of common sublist of at least two lists.
         If there're multiple 2-common sublists with the same longest length, it only returns one of them.
         """
-        max_length = 0 # max_length returns the length of longest 2-common sublist
-        files_need = set() # files_need returns {node_index: [(index of file, offset)]}
+        max_length = 0 # max_length stores the length of longest 2-common sublist
         for x in self.edges:
             edge = self.edges[x]
             if isinstance(self.lis[edge.end_list_index], str):
@@ -194,8 +193,10 @@ class GeneralizedSuffixTree(object):
                 if self.nodes[node_index].dist_from_root > max_length:
                     max_length = self.nodes[node_index].dist_from_root
                     node_need_index = node_index
-                    files_need = {node_index :[(int(self.lis[edge.end_list_index]), - (edge.length + max_length - 1))]}
+                    files_need = [node_index, (int(self.lis[edge.end_list_index]), - (edge.length + max_length - 1))]
+                    # files_need stores [node_index, (index of list, offset)]
                 elif node_index in files_need:
-                    files_need[node_index].append((int(self.lis[edge.end_list_index]), - (edge.length + max_length - 1)))
+                    files_need.append((int(self.lis[edge.end_list_index]), - (edge.length + max_length - 1)))
         if max_length == 0: return False
-        return max_length, files_need
+        return max_length, files_need[1:]
+        # It returns max_length, [(index of list, offset)]
