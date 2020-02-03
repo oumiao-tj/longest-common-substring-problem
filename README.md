@@ -5,6 +5,8 @@ Given a large number of binary files, to find the longest strand of bytes that i
 
 I constructed a class GeneralizedSuffixTree which takes list[list[int]] as its input. Function self.find_longest_common_sublist returns length of the longest 2-common sublist and where it appears (including files and offset in each file).
 
+This algorithm takes only linear time complexity to solve the problem, which is pretty efficient when length of lists are long.
+
 How to use
 ----------
 
